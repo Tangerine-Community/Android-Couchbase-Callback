@@ -13,7 +13,7 @@
  *   See the License for the specific language governing permissions and
  *   limitations under the License.
  */
-package org.rti.tangerine;
+package org.rti.mmlp;
 
 import java.io.IOException;
 
@@ -26,14 +26,21 @@ import com.couchbase.android.CouchbaseMobile;
 import com.couchbase.android.ICouchbaseDelegate;
 import com.phonegap.DroidGap;
 
+import android.widget.ImageView;
+import android.view.ViewGroup.LayoutParams;
+import android.os.Environment;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.widget.RelativeLayout;
+
 /**
  * Avoid making changes to this class.  If you find the need, please
  * make suggestions here:  https://groups.google.com/forum/#!forum/mobile-couchbase
  */
 
-public class Tangerine extends DroidGap
+public class mmlp extends DroidGap
 {
-    public static final String TAG = Tangerine.class.getName();
+    public static final String TAG = mmlp.class.getName();
     public static final String COUCHBASE_DATABASE_SUFFIX = ".couch";
     public static final String DEFAULT_ATTACHMENT = "/index.html";
     private CouchbaseMobile couchbaseMobile;
@@ -66,11 +73,12 @@ public class Tangerine extends DroidGap
     {
         super.onCreate(savedInstanceState);
 
+    
         // show the splash screen
         // NOTE: Callback won't show the splash until we try to load a URL
         //       so we start a load, with a wait time we should never exceed
         // super.setIntegerProperty("splashscreen", R.drawable.splash);
-        //loadUrl( "file:///android_asset/www/error.html", 120000 );
+        // super.loadUrl( "file:///android_asset/www/index.html");
 
         // increase the default timeout
         super.setIntegerProperty( "loadUrlTimeoutValue", 60000 );
@@ -146,10 +154,10 @@ public class Tangerine extends DroidGap
             cancelLoadUrl();
 
             if(couchappDatabase != null) {
-                Tangerine.this.loadUrl(getCouchAppURL(host, port));
+                mmlp.this.loadUrl(getCouchAppURL(host, port));
             }
 
-            Tangerine.this.couchbaseStarted(host, port);
+            mmlp.this.couchbaseStarted(host, port);
         }
 
         @Override
