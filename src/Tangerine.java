@@ -70,7 +70,7 @@ public class Tangerine extends DroidGap
         // start couchbase
         couchbaseService = couchbaseMobile.startCouchbase();
 
-        listFiles("/assets");
+        //listFiles("/assets");
 
     }
 
