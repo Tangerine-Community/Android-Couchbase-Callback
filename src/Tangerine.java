@@ -120,18 +120,19 @@ public class Tangerine extends DroidGap
             //stop the load that we started to display the splash screen
             cancelLoadUrl();
             
-            Log.d(TAG, "Cancelling load, loading couchapp");
-
             //loadUrl( "file:///android_asset/www/index.html" );
             String url = calcTangerineURL(host, port);
-            Log.d(TAG, "url: " + url);
+            
             Tangerine.this.loadUrl(url);
-
+ 
             Tangerine.this.couchbaseStarted(host, port);
+
         }
 
         @Override
         public void exit(String error) {}
     };
+
+
 }
 
