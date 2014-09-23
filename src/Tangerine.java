@@ -60,9 +60,9 @@ public class Tangerine extends DroidGap
 
         couchbaseMobile = new CouchbaseMobile( getBaseContext(), couchCallbackHandler );
 
-        try {
+        try 
+        {
             couchbaseMobile.installDatabase("tangerine.couch");
-            couchbaseMobile.installDatabase("mmlp.couch");
         } catch (IOException e) {
             Log.e(TAG, "Error installing database", e);
         }
